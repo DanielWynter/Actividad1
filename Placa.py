@@ -18,11 +18,9 @@ mask = cv.inRange(hsv, lower_black, upper_black)
 # Apply avg filter
 average = cv.medianBlur(mask, 5)
 
-
-# Ocr
+# Ocr language and reader
 reader = ocr.Reader(["es"], gpu=False)
 result = cv.imread("/Users/danieledenwynter/Desktop/El arte de la programación/Actividad1/placa_filtrada.jpg")
-
 
 # Display the result
 result_text = reader.readtext(result, paragraph=False)
