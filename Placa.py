@@ -1,5 +1,4 @@
 import numpy as np 
-
 import easyocr as ocr
 
 import cv2 as cv
