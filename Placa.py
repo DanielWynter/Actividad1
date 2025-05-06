@@ -1,6 +1,8 @@
-import cv2 as cv
 import numpy as np 
+
 import easyocr as ocr
+
+import cv2 as cv
 
 # Load the average
 img = cv.imread("/Users/danieledenwynter/Desktop/El arte de la programación/Actividad1/placa.jpg")
