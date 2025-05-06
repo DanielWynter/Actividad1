@@ -2,21 +2,30 @@ import cv2 as cv
 import numpy as np 
 import easyocr as ocr
 
+# Load the average
 img2 = cv.imread("/Users/danieledenwynter/Desktop/El arte de la programación/Actividad1/placa2.jpg")   
 
+# Convert BGR to HSV
 hsv2 = cv.cvtColor(img2, cv.COLOR_BGR2HSV)
 
+# Define HSV range for yellow
 lower_black = np.array([0, 0, 0]) 
 upper_black = np.array([180, 255, 50]) 
 
+# Create a mask
 mask2 = cv.inRange(hsv2, lower_black, upper_black)
 
+# Apply avg filter
 average2 = cv.medianBlur(mask2, 5)
+
+#Save image on path
 cv.imwrite("/Users/danieledenwynter/Desktop/El arte de la programación/Actividad1/placa_filtrada2.jpg", average2)
 
+# Ocr language and reader
 reader = ocr.Reader(["es"], gpu=False)
 result2 = cv.imread("/Users/danieledenwynter/Desktop/El arte de la programación/Actividad1/placa_filtrada2.jpg")
 
+# Display the result
 result_text2 = reader.readtext(result2, paragraph=False)
 
 for res in result_text2:
